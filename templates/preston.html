@@ -124,12 +124,13 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </template>
-            {%- macro video(name, id, mhide = false) %}
+            {%- macro video(name, type, id, mhide = false) %}
             <div class="h-fit {{ 'mhide hidden md:flex' if mhide else 'flex' }} flex-col items-center bg-gray-700 rounded-lg overflow-hidden">
                 <div id="vid-{{ id }}" class="hidden w-full h-full aspect-video"></div>
                 <img id="img-{{ id }}" alt="{{ name }} thumbnail" class="w-full aspect-video object-cover cursor-pointer"
                     src="https://img.youtube.com/vi/{{ id }}/hqdefault.jpg" />
-                <a class="w-full text-white text-xl text-center font-bold underline p-4"
+                <span class="w-full text-white text-normal text-center pt-4">{{ type }}</span>
+                <a class="w-full text-white text-xl text-center font-bold underline pb-4"
                     href="https://www.youtube.com/watch?v={{ id }}">{{ name }}</a>
 
                 <script>
@@ -143,14 +144,14 @@
                 </script>
             </div>
             {% endmacro -%}
-            {{ video("Jeremy Flick - Goodnight", "lwr7FaFosaE") }}
-            {{ video("A Really Good Ninja", "03jgBOPsG1k") }}
-            {{ video("YMCA - Wellbeing Open House", "t3rku1n9JK8") }}
-            {{ video("NLM - Medicated", "WyA2f0QsttE", true) }}
-            {{ video("Disk Golf Adventures", "at2gd6o5ITM", true) }}
-            {{ video("Jon Ornée - Lake Blvd.", "T-IKb-1SKmc", true) }}
-            {{ video("YMCA - Quote", "mNHGRsPBPjg", true) }}
-            {{ video("Operation Groomsmen", "Cnu7T0wKyQQ", true) }}
+            {{ video("Jeremy Flick - Goodnight", "Music Video", "lwr7FaFosaE") }}
+            {{ video("A Really Good Ninja", "Action", "03jgBOPsG1k") }}
+            {{ video("YMCA - Wellbeing Open House", "SFX", "t3rku1n9JK8") }}
+            {{ video("NLM - Medicated", "Music Video", "WyA2f0QsttE", true) }}
+            {{ video("Disk Golf Adventures", "Sport", "at2gd6o5ITM", true) }}
+            {{ video("Jon Ornée - Lake Blvd.", "Music Video", "T-IKb-1SKmc", true) }}
+            {{ video("YMCA - Quote", "3d Animation", "mNHGRsPBPjg", true) }}
+            {{ video("Operation Groomsmen", "Action", "Cnu7T0wKyQQ", true) }}
         </div>
 
         <a id="show-all" class="w-full text-white text-xl text-center font-bold cursor-pointer bg-gray-700 p-4 rounded-lg mt-6 md:hidden">Show All</a>
